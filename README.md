@@ -9,7 +9,7 @@
     password: process.env.PANEL_PASSWORD,
     host: process.env.PANEL_HOST,
     port: process.env.PANEL_PORT,
-    scheme: process.env.PANEL_SCHEME,
+    scheme: process.env.PANEL_SCHEME, // http/https
   });
 
   // call login once before other calls
