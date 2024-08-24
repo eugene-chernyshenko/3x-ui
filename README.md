@@ -57,19 +57,27 @@ await panelClient.addClient({
 ## delete client
 
 ```.js
-const clientId = "ee323510-958a-41cb-9de8-74541b54be38";
-await panelClient.delClient({ inboundId, clientId });
+const client = settingsObj.clients.find((client) => client.email === "test1");
+await panelClient.delClient({ inboundId, clientId: client.id });
 ```
 
-## update client
+## update client (enable, disable, update totalGB)
 
 ```
 const client = settingsObj.clients.find((client) => client.email === "test1");
-panelClient.updateClient({
+await panelClient.updateClient({
   inboundId,
   clientSettings: {
     ...client,
     enable: false,
+    // totalGB: 0,
   },
 });
+```
+
+## reset client traffic
+
+```.js
+const client = settingsObj.clients.find((client) => client.email === "test1");
+await panelClient.resetClientTraffic({ inboundId, email: client.email });
 ```
